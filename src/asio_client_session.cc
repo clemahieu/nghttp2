@@ -69,7 +69,7 @@ session::session(boost::asio::io_service &io_service,
   impl_->start_resolve(host, service);
 }
 
-session::~session() {}
+session::~session() { impl_->stop (); }
 
 session::session(session &&other) noexcept : impl_(std::move(other.impl_)) {}
 
